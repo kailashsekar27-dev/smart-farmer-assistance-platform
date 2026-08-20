@@ -30,10 +30,10 @@ jobs:
           node-version: 20
 
       - name: Install dependencies
-        run: npm install --legacy-peer-deps
+        run: npm install
 
       - name: Build static project
-        run: npx vite build
+        run: npm run build:client
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
