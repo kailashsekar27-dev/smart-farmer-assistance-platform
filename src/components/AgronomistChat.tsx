@@ -18,6 +18,7 @@ import {
 } from 'lucide-react';
 import { ChatMessage, LanguageCode, FarmProfile } from '../types';
 import { generateAgronomistResponse } from '../utils/agronomyBrain';
+import { MarkdownRenderer } from './MarkdownRenderer';
 
 interface AgronomistChatProps {
   currentLanguage: LanguageCode;
@@ -347,10 +348,10 @@ export const AgronomistChat: React.FC<AgronomistChatProps> = ({
                   className={`px-4 py-3 rounded-2xl text-sm leading-relaxed ${
                     isUser
                       ? 'bg-slate-900 text-white rounded-tr-xs'
-                      : 'bg-white text-slate-800 border border-slate-200 shadow-2xs rounded-tl-xs whitespace-pre-line'
+                      : 'bg-white text-slate-800 border border-slate-200 shadow-2xs rounded-tl-xs'
                   }`}
                 >
-                  {msg.content}
+                  <MarkdownRenderer content={msg.content} isUser={isUser} />
                 </div>
 
                 <div
